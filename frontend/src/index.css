@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab%3A400%2C700');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Karla', sans-serif;
+  height: 100vh;
+  background-color: darkkhaki;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+p {
+  line-height: 1.5;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  line-height: 1.2;
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.wdthbtns {
+  width: 250px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+h1:before, .subhead::before, h1:after, .subhead:after {
+  content: "-";
+  flex: 1 1;
+  margin: 0px 20px;
+}
+
+h1 {
+  font-family: Roboto Slab;
+  font-size: 34pt;
+}
+
+h1:hover {
+  font-weight: 700;
+}
+
+.bookNotesPage {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.noteActionBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.transform {
+  text-transform: capitalize;
+}
+
+.title {
+  text-transform: capitalize;
+  font-size: 13pt;
+}
+
+.subhead{
+  margin-bottom: 10pt;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin-bottom: 60px;
+  position: sticky;
+  top: 0;
+  background-color: #fbfbfb;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.header ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header ul li {
+  margin-left: 20px;
+}
+
+.header ul li a {
+  display: flex;
+  align-items: center;
+  font-size: 13pt;
+}
+
+.header ul li a:hover {
+  color: #b7341a;
+  transform: scale(1.1);
+}
+
+.header ul li a svg {
+  margin-right: 5px;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  padding: 0 20px;
+}
+
+.tasks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.task {
+  background-color: #f4f4f4;
+  margin: 10px 0;
+  padding: 20px 0 10px;
+  position: relative;
+}
+
+.task .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.form,
+.content {
+  width: 70%;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  display: grid;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-family: inherit;
+}
+
+.form-group label {
+  text-align: left;
+  display: block;
+  margin: 0 0 5px 3px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  appearance: button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn svg {
+  margin-right: 8px;
+}
+
+.btn-reverse {
+  background: #fff;
+  color: #000;
+}
+
+.btn-block {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.noteForm >textarea, .myNotes {
+    min-width: 350px;
+    max-width: 500px;
+    flex-wrap: wrap;
+}
+
+.notrsfm:hover {
+  transform: none;
+}
+
+/* .btn:hover {
+  transform: scale(0.98);
+} */
+
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #000 transparent #555 transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+#search {
+  margin-bottom: 60px;
+}
+
+#search>input {
+  height: 35px;
+  width: 300px;
+  font-size: 13pt;
+  padding-left: 10px;
+  border: 1px solid #e6e6e6
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.book-item,
+.noteFormText {
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.book-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.book-item p {
+  margin-bottom: 5px;
+}
+
+.book-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.book-item .placeholder {
+  color: #828282;
+  margin-top: 15px;
+}
+
+.myBook{
+  max-width: 400px;
+  min-width: 380px;
+}
+
+.noteForm {
+  display: grid;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.noteFormText {
+  max-width: 800px;
+  min-width: 300px;
+}
+
+.note {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: minmax(200px, 1fr) 75px;
+  background-color: white;
+  margin: 8px 0px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+}
+
+.note > p {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: #ff6347; /* Red */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 2px;
+  font-size: 12pt;
+}
+
+button:hover {
+  background-color: #b7341a; 
+  transform: scale(1.1)
+}
+
+.manage {
+  color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#logo {
+  height: 50px;
+}
+
+img {
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .book-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 90%;
+  }
+
+  .transform::before, .transform::after {
+    content: none;
+  }
+
+  .heading p {
+    font-size: 1.5rem;
+  }
+
+  .header{
+    position: relative;
+    display: block;
+  }
+
+  .header ul {
+    display: grid;
+    justify-content: center;
+  }
+
+  .header ul li {
+    justify-content: center;
+    align-items: center;
+    width: inherit;   
+    margin-left: 0px;
+  }
+
+  .header a {
+    height: 40px;
+  }
+
+  .header ul {
+    margin: 10px 0;
+  }
+
+  .menu-icon {
+    position: absolute;
+    right: 0;
+    top: 25px;
+    margin-right: 20px;
+  }
+  
+  .menu-icon:hover {
+   cursor: pointer;
+  }
+
+  .myBook {
+    max-width: 360px;
+    min-width: 250px;
+  }  
+
+}
+
+.book-list-layout {
+  display: flex;
+}
+
+.left-panel {
+  flex: 1;
+}
+
+.right-panel {
+  flex: 1;
+}
+
+.bookdesc {
+  word-wrap: break-word;
+}
+
