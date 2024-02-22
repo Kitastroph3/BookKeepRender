@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchNotesForBook, createNote as createNoteAPI, updateNote as updateNoteAPI, deleteNote as deleteNoteAPI } from './noteService';
 
-export const fetchNotes = createAsyncThunk('notes/fetchNotes', async (bookId, { getState, rejectWithValue }) => {
+export const fetchNotes = createAsyncThunk('https://book-keep-render.vercel.app/notes/fetchNotes', async (bookId, { getState, rejectWithValue }) => {
   try {
     const userData = getState().auth.user; 
     return await fetchNotesForBook(bookId, userData);
@@ -10,7 +10,7 @@ export const fetchNotes = createAsyncThunk('notes/fetchNotes', async (bookId, { 
   }
 });
 
-export const createNote = createAsyncThunk('notes/createNote', async ({ bookId, content }, { getState, rejectWithValue }) => {
+export const createNote = createAsyncThunk('https://book-keep-render.vercel.app/notes/createNote', async ({ bookId, content }, { getState, rejectWithValue }) => {
   try {
     const userData = getState().auth.user; 
     return await createNoteAPI(bookId, content, userData);
@@ -27,7 +27,7 @@ export const createNote = createAsyncThunk('notes/createNote', async ({ bookId, 
 //     return rejectWithValue(error.message);
 //   }
 // });
-export const updateNote = createAsyncThunk('notes/updateNote', async ({ noteId, bookId, content }, { getState, rejectWithValue }) => {
+export const updateNote = createAsyncThunk('https://book-keep-render.vercel.app/notes/updateNote', async ({ noteId, bookId, content }, { getState, rejectWithValue }) => {
   try {
     const userData = getState().auth.user; 
     const updatedNote = await updateNoteAPI(bookId, noteId, content, userData);
@@ -38,7 +38,7 @@ export const updateNote = createAsyncThunk('notes/updateNote', async ({ noteId, 
 });
 
 export const deleteNote = createAsyncThunk(
-  'notes/deleteNote', async ({ bookId, noteId }, { getState, rejectWithValue }) => {
+  'https://book-keep-render.vercel.app/notes/deleteNote', async ({ bookId, noteId }, { getState, rejectWithValue }) => {
   try {
     const userData = getState().auth.user; 
     return await deleteNoteAPI(bookId, noteId, userData); // Corrected parameter usage
