@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'https://book-keep-render.vercel.app/api/books';
+const API_URL = '/api/books';
 
 export const fetchNotesForBook = async (bookId, userData) => {
     try {

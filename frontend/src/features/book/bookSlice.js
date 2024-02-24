@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchBooks, saveBook as saveBookAPI, deleteBook as deleteBookAPI, deleteAllnotes } from './bookService';
 
 // Async thunk to fetch all books
-export const fetchAllBooks = createAsyncThunk('https://book-keep-render.vercel.app/books/fetchAll', async (_, { rejectWithValue, getState }) => {
+export const fetchAllBooks = createAsyncThunk('books/fetchAll', async (_, { rejectWithValue, getState }) => {
   try {
     const userData = getState().auth.user; // Get user data from the state
     return await fetchBooks(userData);
@@ -12,7 +12,7 @@ export const fetchAllBooks = createAsyncThunk('https://book-keep-render.vercel.a
 });
 
 // Async thunk to save a book
-export const saveBook = createAsyncThunk('https://book-keep-render.vercel.app/books/save', async (bookData, { rejectWithValue, getState }) => {
+export const saveBook = createAsyncThunk('books/save', async (bookData, { rejectWithValue, getState }) => {
   try {
     const userData = getState().auth.user;
     const updatedBookData = {
@@ -26,7 +26,7 @@ export const saveBook = createAsyncThunk('https://book-keep-render.vercel.app/bo
 });
 
 // Async thunk to delete a book and notes
-export const deleteBook = createAsyncThunk('https://book-keep-render.vercel.app/books/delete', async (bookId, { rejectWithValue, getState }) => {
+export const deleteBook = createAsyncThunk('books/delete', async (bookId, { rejectWithValue, getState }) => {
   try {
     const userData = getState().auth.user; // Get user data from the state
     await deleteBookAPI(bookId, userData);

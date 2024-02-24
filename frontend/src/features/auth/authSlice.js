@@ -12,7 +12,7 @@ const initialState = {
 }
 
 export const register = createAsyncThunk(
-    'https://book-keep-render.vercel.app/auth/register',
+    'auth/register',
     async (user, thunkAPI) => {
         try {
             return await authService.register(user)
@@ -25,7 +25,7 @@ export const register = createAsyncThunk(
     }
 )
 
-export const login = createAsyncThunk('https://book-keep-render.vercel.app/auth/login', async (user, thunkAPI) => { 
+export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => { 
     try {
         return await authService.login(user)
     } catch (error) { 
@@ -37,7 +37,7 @@ export const login = createAsyncThunk('https://book-keep-render.vercel.app/auth/
     }
 })
 
-export const logout = createAsyncThunk('https://book-keep-render.vercel.app/auth/logout', async () => await authService.logout())
+export const logout = createAsyncThunk('auth/logout', async () => await authService.logout())
 
 export const authSlice = createSlice({
     name: 'auth',
