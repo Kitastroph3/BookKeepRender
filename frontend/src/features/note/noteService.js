@@ -2,7 +2,7 @@
 
 import axios from 'axios';
 
-const API_URL = '/api/books';
+const API_URL = 'https://bookkeep2-fwyfp8p6.b4a.run/api/books';
 
 export const fetchNotesForBook = async (bookId, userData) => {
     try {
