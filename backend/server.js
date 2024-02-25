@@ -8,10 +8,7 @@ const port = process.env.PORT || 5000;
 connectDB();
 const app = express();
 
-app.use(cors({
-    origin: "https://book-keep-render-front.vercel.app/",
-    methods: [ 'GET', 'POST', 'PUT', 'DELETE' ]
-}));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
