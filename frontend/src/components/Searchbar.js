@@ -18,14 +18,14 @@ const Searchbar = () => {
 
     try {
       const encodedQuery = encodeURIComponent(query);
-      const response = await axios.get(`http://openlibrary.org/search.json?title=${encodedQuery}&limit=60`);
+      const response = await axios.get(`https://openlibrary.org/search.json?title=${encodedQuery}&limit=60`);
       const books = await Promise.all(response.data.docs.map(async book => {
-        const bookDataResponse = await axios.get(`http://openlibrary.org${book.key}.json`);
+        const bookDataResponse = await axios.get(`https://openlibrary.org${book.key}.json`);
         const bookData = bookDataResponse.data;
         return {
           title: book.title,
           author: (book.author_name && book.author_name.length > 0) ? book.author_name[0] : 'Unknown',
-          coverImage: book.cover_i ? `http://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : null,
+          coverImage: book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : null,
           key: book.key,
           author_key: book.author_key,
           description: bookData.description || 'No description available',
