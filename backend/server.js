@@ -9,6 +9,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
+    origin: "https://book-keep-render-front.vercel.app/",
     methods: [ 'GET', 'POST', 'PUT', 'DELETE' ]
 }));
 
